@@ -58,8 +58,17 @@ static const opcode_info_t opcode_table[] = {
     { OP_STORE_REL,  "store_rel",  OPERAND_U8   },
     { OP_LOAD_ABS,   "load_abs",   OPERAND_NONE },
     { OP_STORE_ABS,  "store_abs",  OPERAND_NONE },
+    { OP_LOAD_HEAP,  "load_heap",  OPERAND_NONE },
+    { OP_STORE_HEAP, "store_heap", OPERAND_NONE },
     { OP_SYSCALL,    "syscall",    OPERAND_U8   },
     { OP_BREAK,      "break",      OPERAND_NONE },
+    { OP_AND,        "and",        OPERAND_NONE },
+    { OP_OR,         "or",         OPERAND_NONE },
+    { OP_XOR,        "xor",        OPERAND_NONE },
+    { OP_NOT,        "not",        OPERAND_NONE },
+    { OP_SHL,        "shl",        OPERAND_NONE },
+    { OP_SHR,        "shr",        OPERAND_NONE },
+    { OP_SAR,        "sar",        OPERAND_NONE },
 };
 
 #define OPCODE_TABLE_SIZE (sizeof(opcode_table) / sizeof(opcode_table[0]))

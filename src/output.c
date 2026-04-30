@@ -38,30 +38,38 @@
 static const char *syscall_name(uint8_t id)
 {
     switch (id) {
-    case SYS_EXIT:           return "exit";
-    case SYS_SPAWN:          return "spawn";
-    case SYS_OPEN:           return "open";
-    case SYS_READ:           return "read";
-    case SYS_WRITE:          return "write";
-    case SYS_MSG_SEND:       return "msg_send";
-    case SYS_MSG_RECEIVE:    return "msg_receive";
-    case SYS_PORT_IN_BYTE:   return "port_in_byte";
-    case SYS_PORT_OUT_BYTE:  return "port_out_byte";
-    case SYS_PRINT:          return "print";
-    default:                 return NULL;
+    case SYS_EXIT:      return "exit";
+    case SYS_SPAWN:     return "spawn";
+    case SYS_CAP_SPAWN: return "cap_spawn";
+    case SYS_SLEEP:     return "sleep";
+    case SYS_OPEN:      return "open";
+    case SYS_CLOSE:     return "close";
+    case SYS_READ:      return "read";
+    case SYS_WRITE:     return "write";
+    case SYS_MKDIR:     return "mkdir";
+    case SYS_REMOVE:    return "remove";
+    case SYS_DUP2:      return "dup2";
+    case SYS_SBRK:      return "sbrk";
+    case SYS_AWAIT:     return "await";
+    default:            return NULL;
     }
 }
 
 static const char *syscall_cap_comment(uint8_t id)
 {
     switch (id) {
-    case SYS_SPAWN:          return "requires CAP_FS_READ";
-    case SYS_OPEN:           return "requires CAP_FS_READ";
-    case SYS_READ:           return "requires CAP_FS_READ";
-    case SYS_WRITE:          return "requires CAP_FS_WRITE";
-    case SYS_PORT_IN_BYTE:   return "requires CAP_DRV_ACCESS";
-    case SYS_PORT_OUT_BYTE:  return "requires CAP_DRV_ACCESS";
-    default:                 return NULL;
+    case SYS_SPAWN:     return "requires CAP_FS_READ";
+    case SYS_CAP_SPAWN: return "not implemented - kills process";
+    case SYS_SLEEP:     return "not implemented - kills process";
+    case SYS_OPEN:      return "requires CAP_FS_READ";
+    case SYS_CLOSE:     return "not implemented - kills process";
+    case SYS_READ:      return "requires CAP_FS_READ";
+    case SYS_WRITE:     return "requires CAP_FS_WRITE";
+    case SYS_MKDIR:     return "not implemented - kills process";
+    case SYS_REMOVE:    return "requires CAP_FS_DELETE";
+    case SYS_DUP2:      return "not implemented - kills process";
+    case SYS_AWAIT:     return "not implemented - kills process";
+    default:            return NULL;
     }
 }
 
